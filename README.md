@@ -72,4 +72,7 @@ Keeps track of statistics across the lifetime of the `process`.
 
 Contains the base config for a managing cache (see `lib/defaultConfig` for documentation).
 
+## License
+
+ISC
 
