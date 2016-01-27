@@ -10,7 +10,7 @@ const memoize = require('..');
 const async = require('async');
 const util = require('./util');
 const createServer = require('./server');
-const request = memoize(require('request'), 'request', {
+const request = memoize.async(require('request'), 'request', {
   getCache: function() {
     return cache;
   },

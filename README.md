@@ -58,7 +58,11 @@ request('http://localhost/')
 
 **memoize(originalFunc, funcName, config)**
 
-This function will return another function that wraps *originalFunc*. The function returned will be "promisified" in that if it the function normally responds asynchronously with a callback, it will also work with a promise if no callback is passed. Calling this function will transparently check cache, wait for a result, or execute the query to get the result.
+This function will return another function that wraps *originalFunc*. Calling this function will transparently check cache, wait for a result, or execute the query to get the result.
+
+**memoize.async(originalFunc, funcName, config)**
+
+This function is to be used for functions that expect a callback. The function returned will be "promisified" in that it will work instead with a promise if no callback is passed. 
 
 **memoize.property(object, funcName, config)**
 
