@@ -1,6 +1,6 @@
 {
   "name": "concurrent-memoize",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Memoize Concurrent Requests in your Application so that only one request is executed and all subsequent, concurrent, waiting requests that are identical to the first request get notified with the result of the first call. Also all future accesses of the value return cache.",
   "main": "lib/memoize.js",
   "scripts": {
