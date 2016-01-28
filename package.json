@@ -1,7 +1,7 @@
 {
   "name": "concurrent-memoize",
-  "version": "1.0.1",
-  "description": "Memoize Concurrent Requests in your Application so that only one request is executed and all subsequent, concurrent, waiting requests that are identical to the first request get notified with the result of the first call. Also all future accesses of the value return cache.",
+  "version": "0.0.0",
+  "description": "Memoize Concurrent Requests in your Application",
   "main": "lib/memoize.js",
   "scripts": {
     "test": "node ./node_modules/.bin/mocha --require should --harmony --recursive ./test/memoize.test.js"
@@ -14,14 +14,17 @@
     "dedupe",
     "deduplicate",
     "request",
-    "mysql"
+    "mysql",
+    "query",
+    "memoize",
+    "memoization"
   ],
   "author": "Adam Jaso <ajaso@sazze.com>",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/sazze/node-deduplicate/issues"
+    "url": "https://github.com/sazze/node-concurrent-memoize/issues"
   },
-  "homepage": "https://github.com/sazze/node-deduplicate#readme",
+  "homepage": "https://github.com/sazze/node-concurrent-memoize#readme",
   "dependencies": {
     "callback-and-promise": "^2.0.0",
     "co": "^4.6.0",
