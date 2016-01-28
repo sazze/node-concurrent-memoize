@@ -10,9 +10,9 @@ Memoize Concurrent Requests in your Application so that only one request is exec
 
 Often times organized, reusable code may make many duplicate calls. These calls may be database queries, HTTP requests, other third party requests. This module de-duplicates asynchronous, simultaneous requests, in this way
 
-1. Check cache. If it exists, return instantly, and notify all other *identical* waiting requests of the result.
+1. Check cache. If it exists, return instantly.
 2. Check if an *identical* request is currently executing. If so, wait for the response to that request.
-3. If no cache exists and no request is executing, then begin executing the request.
+3. If no cache exists and no *identical* request is executing, then begin executing the request, *and* when the request is finished executing, notify all concurrent *identical* requests that are waiting for the same result.
 
 ## A bit of history
 
@@ -53,6 +53,10 @@ request('http://localhost/')
     console.log("I'm cached!");
   });
 ```
+
+## Early Stage Versioning
+
+The module is in its early stages still, so I'm resetting the major version to 0.x.x in order to work out bugs without increasing the major version with every breaking change.
 
 ## Documentation
 
