@@ -1,6 +1,6 @@
 {
   "name": "concurrent-memoize",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Memoize Concurrent Requests in your Application",
   "main": "lib/memoize.js",
   "scripts": {
