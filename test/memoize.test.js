@@ -10,6 +10,7 @@ const memoize = require('..');
 const async = require('async');
 const util = require('./util');
 const createServer = require('./server');
+const timer = new (require('libstats').Timer)('Cache Hits');
 const request = memoize.async(require('request'), 'request', {
   getCache: function() {
     return cache;
@@ -22,6 +23,9 @@ const request = memoize.async(require('request'), 'request', {
   },
   allowCache: function() {
     return true;
+  },
+  getTimer: function() {
+    return timer;
   }
 });
 
@@ -72,15 +76,15 @@ describe('Concurrent Memoize', function() {
       }
     ], function() {
       try {
-        console.log(memoize.timer.toString());
+        console.log(timer.toString());
       } catch (e) {
         console.error(e);
       }
 
-      memoize.timer.stat.count.should.be.eql(15);
-      memoize.timer.stats.lock.count.should.be.eql(5);
-      memoize.timer.stats.cache.count.should.be.eql(5);
-      memoize.timer.stats.fresh.count.should.be.eql(5);
+      timer.stat.count.should.be.eql(15);
+      timer.stats.lock.count.should.be.eql(5);
+      timer.stats.cache.count.should.be.eql(5);
+      timer.stats.fresh.count.should.be.eql(5);
 
       done();
     });
